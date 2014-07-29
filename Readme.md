@@ -3,6 +3,8 @@
 
   Find the intersection of two iterable values.
 
+  This library provides multiple implementations which each have their strong and weak points.
+
   Read the [docs](http://godoc.org/github.com/juliangruber/go-intersect).
 
 ## Installation
