@@ -21,3 +21,11 @@ func TestSorted(t *testing.T) {
 	s = Sorted([]int{1, 2}, []int{2})
 	assert.Equal(t, s, []interface{}{2})
 }
+
+func TestHash(t *testing.T) {
+	s := Hash([]int{1}, []int{2})
+	assert.Equal(t, s, []interface{}{})
+
+	s = Hash([]int{1, 2}, []int{2})
+	assert.Equal(t, s, []interface{}{2})
+}
