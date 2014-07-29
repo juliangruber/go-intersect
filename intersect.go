@@ -20,7 +20,7 @@ func Simple(a interface{}, b interface{}) interface{} {
 	return set
 }
 
-// Complexity: O(n * log(n))
+// Complexity: O(n * log(n)), a needs to be sorted
 func Sorted(a interface{}, b interface{}) interface{} {
 	set := make([]interface{}, 0)
 	av := reflect.ValueOf(a)
