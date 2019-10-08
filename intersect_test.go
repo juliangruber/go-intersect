@@ -8,6 +8,7 @@ import (
 
 func TestSimple(t *testing.T) {
 	s := Simple([]int{1}, []int{2})
+	assert.Equal(t, len(s), 0)
 	assert.Equal(t, s, []interface{}{})
 
 	s = Simple([]int{1, 2}, []int{2})
@@ -16,6 +17,7 @@ func TestSimple(t *testing.T) {
 
 func TestSorted(t *testing.T) {
 	s := Sorted([]int{1}, []int{2})
+	assert.Equal(t, len(s), 0)
 	assert.Equal(t, s, []interface{}{})
 
 	s = Sorted([]int{1, 2}, []int{2})
@@ -24,6 +26,7 @@ func TestSorted(t *testing.T) {
 
 func TestHash(t *testing.T) {
 	s := Hash([]int{1}, []int{2})
+	assert.Equal(t, len(s), 0)
 	assert.Equal(t, s, []interface{}{})
 
 	s = Hash([]int{1, 2}, []int{2})
