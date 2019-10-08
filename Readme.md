@@ -7,6 +7,8 @@
 
   Read the [docs](http://godoc.org/github.com/juliangruber/go-intersect).
 
+  [![Build Status](https://travis-ci.com/juliangruber/go-intersect.svg?branch=master)](https://travis-ci.com/juliangruber/go-intersect)
+
 ## Installation
 
 ```bash
