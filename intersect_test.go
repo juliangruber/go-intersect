@@ -9,15 +9,6 @@ import (
 	"github.com/bmizerany/assert"
 )
 
-func TestSimple(t *testing.T) {
-	s := Simple([]int{1}, []int{2})
-	assert.Equal(t, len(s), 0)
-	assert.Equal(t, s, []interface{}{})
-
-	s = Simple([]int{1, 2}, []int{2})
-	assert.Equal(t, s, []interface{}{2})
-}
-
 func TestSimpleGeneric(t *testing.T) {
 	s := SimpleGeneric([]int{1}, []int{2})
 	assert.Equal(t, len(s), 0)
@@ -25,15 +16,6 @@ func TestSimpleGeneric(t *testing.T) {
 
 	s = SimpleGeneric([]int{1, 2}, []int{2})
 	assert.Equal(t, s, []int{2})
-}
-
-func TestSorted(t *testing.T) {
-	s := Sorted([]int{1}, []int{2})
-	assert.Equal(t, len(s), 0)
-	assert.Equal(t, s, []interface{}{})
-
-	s = Sorted([]int{1, 2}, []int{2})
-	assert.Equal(t, s, []interface{}{2})
 }
 
 func TestSortedGeneric(t *testing.T) {
@@ -45,15 +27,6 @@ func TestSortedGeneric(t *testing.T) {
 	assert.Equal(t, s, []int{2})
 }
 
-func TestHash(t *testing.T) {
-	s := Hash([]int{1}, []int{2})
-	assert.Equal(t, len(s), 0)
-	assert.Equal(t, s, []interface{}{})
-
-	s = Hash([]int{1, 2}, []int{2})
-	assert.Equal(t, s, []interface{}{2})
-}
-
 func TestHashGeneric(t *testing.T) {
 	s := HashGeneric([]int{1}, []int{2})
 	assert.Equal(t, len(s), 0)
@@ -61,6 +34,33 @@ func TestHashGeneric(t *testing.T) {
 
 	s = HashGeneric([]int{1, 2}, []int{2})
 	assert.Equal(t, s, []int{2})
+}
+
+func TestSimple(t *testing.T) {
+	s := Simple([]int{1}, []int{2})
+	assert.Equal(t, len(s), 0)
+	assert.Equal(t, s, []interface{}{})
+
+	s = Simple([]int{1, 2}, []int{2})
+	assert.Equal(t, s, []interface{}{2})
+}
+
+func TestSorted(t *testing.T) {
+	s := Sorted([]int{1}, []int{2})
+	assert.Equal(t, len(s), 0)
+	assert.Equal(t, s, []interface{}{})
+
+	s = Sorted([]int{1, 2}, []int{2})
+	assert.Equal(t, s, []interface{}{2})
+}
+
+func TestHash(t *testing.T) {
+	s := Hash([]int{1}, []int{2})
+	assert.Equal(t, len(s), 0)
+	assert.Equal(t, s, []interface{}{})
+
+	s = Hash([]int{1, 2}, []int{2})
+	assert.Equal(t, s, []interface{}{2})
 }
 
 var blackholeHashGeneric []int
