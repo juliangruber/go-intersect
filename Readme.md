@@ -32,7 +32,7 @@ func main() {
 
 Go v1.18 now supports generics which increases performance compared to reflection. Below are benchmark results between reflection and generics of the hash intersection functions. Slice sizes of 1, 10, 100 1.000 and 10.000 are used.
 
-The average time and allocated bytes are more than halved when using generics, and the number of times bytes has to be allocated from the heap are extremely improved.
+The average time and allocated bytes are more than halved when using generics, and the number of times bytes have to be allocated from the heap are improved significantly.
 
 | **Name**                              	| **Runs** 	| **Average** 	| **Allocated** 	| **Allocations from heap** 	|
 |---------------------------------------	|-----------------:	|--------------------:	|---------------------:	|-------------------------------------------:	|
