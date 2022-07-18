@@ -6,6 +6,7 @@ import (
 )
 
 // Simple has complexity: O(n^2)
+// Deprecated: Use SimpleGeneric instead.
 func Simple(a interface{}, b interface{}) []interface{} {
 	set := make([]interface{}, 0)
 	av := reflect.ValueOf(a)
@@ -34,6 +35,7 @@ func SimpleGeneric[T comparable](a []T, b []T) []T {
 }
 
 // Sorted has complexity: O(n * log(n)), a needs to be sorted
+// Deprecated: Use SortedGeneric instead.
 func Sorted(a interface{}, b interface{}) []interface{} {
 	set := make([]interface{}, 0)
 	av := reflect.ValueOf(a)
@@ -69,6 +71,7 @@ func SortedGeneric[T comparable](a []T, b []T) []T {
 }
 
 // Hash has complexity: O(n * x) where x is a factor of hash function efficiency (between 1 and 2)
+// Deprecated: Use HashGeneric instead.
 func Hash(a interface{}, b interface{}) []interface{} {
 	set := make([]interface{}, 0)
 	hash := make(map[interface{}]bool)
