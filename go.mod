@@ -1,4 +1,4 @@
-module github.com/juliangruber/go-intersect
+module github.com/juliangruber/go-intersect/v2
 
 go 1.18
 
