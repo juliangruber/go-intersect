@@ -5,7 +5,7 @@
 
   This library provides multiple implementations which each have their strong and weak points.
 
-  Read the [docs](http://godoc.org/github.com/juliangruber/go-intersect).
+  Read the [docs](https://pkg.go.dev/github.com/juliangruber/go-intersect/v2).
 
   [![Build Status](https://travis-ci.com/juliangruber/go-intersect.svg?branch=master)](https://travis-ci.com/juliangruber/go-intersect)
 
