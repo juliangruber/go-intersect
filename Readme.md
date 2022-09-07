@@ -34,17 +34,17 @@ Go v1.18 now supports generics which increases performance compared to reflectio
 
 The average time and allocated bytes are more than halved when using generics, and the number of times bytes have to be allocated from the heap are improved significantly.
 
-| **Name**                              	 | **Runs** 	 |   **Average** 	 | **Allocated** 	 | **Allocations from heap** 	 |
-|-----------------------------------------|-----------:|----------------:|----------------:|----------------------------:|
-| BenchmarkHash/Size_1-_interface-16      |  5 845 340 |     202.9 ns/op |         80 B/op |                 5 allocs/op |
-| BenchmarkHash/Size_1-_generics-16       | 29 534 389 |     39.86 ns/op |          8 B/op |                 1 allocs/op |
-| BenchmarkHash/Size_10-_interface-16     |    800 064 |     1 438 ns/op |        515 B/op |                24 allocs/op |
-| BenchmarkHash/Size_10-_generics-16      |  2 459 796 |     482.6 ns/op |        170 B/op |                 2 allocs/op |
-| BenchmarkHash/Size_100-_interface-16    |     81 973 |    14 782 ns/op |      6 907 B/op |               212 allocs/op |
-| BenchmarkHash/Size_100-_generics-16     |    184 526 |     6 467 ns/op |      3 052 B/op |                19 allocs/op |
-| BenchmarkHash/Size_1000-_interface-16   |      7 489 |   164 909 ns/op |    101 369 B/op |             2 036 allocs/op |
-| BenchmarkHash/Size_1000-_generics-16    |     16 734 |    70 601 ns/op |     47 743 B/op |                66 allocs/op |
-| BenchmarkHash/Size_10000-_interface-16  |        754 | 1 592 308 ns/op |    836 264 B/op |            20 216 allocs/op |
-| BenchmarkHash/Size_10000-_generics-16   |      1 802 |   652 946 ns/op |    389 466 B/op |               255 allocs/op |
+| **Name**                               |   **Runs** |     **Average** | **Allocated** | **Allocations from heap** |
+|----------------------------------------|-----------:|----------------:|--------------:|--------------------------:|
+| BenchmarkHash/Size_1-_interface-16     |  5 845 340 |     202.9 ns/op |       80 B/op |               5 allocs/op |
+| BenchmarkHash/Size_1-_generics-16      | 29 534 389 |     39.86 ns/op |        8 B/op |               1 allocs/op |
+| BenchmarkHash/Size_10-_interface-16    |    800 064 |     1 438 ns/op |      515 B/op |              24 allocs/op |
+| BenchmarkHash/Size_10-_generics-16     |  2 459 796 |     482.6 ns/op |      170 B/op |               2 allocs/op |
+| BenchmarkHash/Size_100-_interface-16   |     81 973 |    14 782 ns/op |    6 907 B/op |             212 allocs/op |
+| BenchmarkHash/Size_100-_generics-16    |    184 526 |     6 467 ns/op |    3 052 B/op |              19 allocs/op |
+| BenchmarkHash/Size_1000-_interface-16  |      7 489 |   164 909 ns/op |  101 369 B/op |           2 036 allocs/op |
+| BenchmarkHash/Size_1000-_generics-16   |     16 734 |    70 601 ns/op |   47 743 B/op |              66 allocs/op |
+| BenchmarkHash/Size_10000-_interface-16 |        754 | 1 592 308 ns/op |  836 264 B/op |          20 216 allocs/op |
+| BenchmarkHash/Size_10000-_generics-16  |      1 802 |   652 946 ns/op |  389 466 B/op |             255 allocs/op |
 
 
