@@ -37,14 +37,14 @@ func SortedGeneric[T comparable](a []T, b []T) []T {
 // Hash has complexity: O(n * x) where x is a factor of hash function efficiency (between 1 and 2)
 func HashGeneric[T comparable](a []T, b []T) []T {
 	set := make([]T, 0)
-	hash := make(map[T]bool)
+	hash := make(map[T]struct{})
 
 	for _, v := range a {
-		hash[v] = true
+		hash[v] = struct{}{}
 	}
 
 	for _, v := range b {
-		if hash[v] {
+		if _, ok := hash[v]; ok {
 			set = append(set, v)
 		}
 	}
@@ -98,13 +98,13 @@ func Sorted(a interface{}, b interface{}) []interface{} {
 // Deprecated: Use HashGeneric instead. Complexity same as HashGeneric.
 func Hash(a interface{}, b interface{}) []interface{} {
 	set := make([]interface{}, 0)
-	hash := make(map[interface{}]bool)
+	hash := make(map[interface{}]struct{})
 	av := reflect.ValueOf(a)
 	bv := reflect.ValueOf(b)
 
 	for i := 0; i < av.Len(); i++ {
 		el := av.Index(i).Interface()
-		hash[el] = true
+		hash[el] = struct{}{}
 	}
 
 	for i := 0; i < bv.Len(); i++ {
