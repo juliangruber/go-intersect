@@ -36,7 +36,9 @@ func SortedGeneric[T comparable](a []T, b []T) []T {
 
 type Comparator func(i, j int) bool
 
-// SortedGenericV2 has complexity: O(n) where n is length of the shortest array.
+// SortedGenericV2 has complexity: O(n + x) where n is length of the shortest array and x duplicate cases in the longest array.
+// Best case complexity: O(n) where n is length of the shortest array (all values unique)
+// Worst case complexity: O(n) where n is length of the longest array (all values of the longest array are duplicates of intersect match)
 // Warning: Function will change left array order
 func SortedGenericV2[T comparable](a []T, b []T, leftGreater Comparator) []T {
 	var i, j, k int
