@@ -82,24 +82,6 @@ func HashGeneric[T comparable](a []T, b []T) []T {
 	return set
 }
 
-// Hash has complexity: O(n * x) where x is a factor of hash function efficiency (between 1 and 2)
-func HashGenericBool[T comparable](a []T, b []T) []T {
-	set := make([]T, 0)
-	hash := make(map[T]bool)
-
-	for _, v := range a {
-		hash[v] = true
-	}
-
-	for _, v := range b {
-		if hash[v] {
-			set = append(set, v)
-		}
-	}
-
-	return set
-}
-
 func containsGeneric[T comparable](b []T, e T) bool {
 	for _, v := range b {
 		if v == e {
