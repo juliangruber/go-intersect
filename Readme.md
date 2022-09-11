@@ -48,3 +48,21 @@ The average time and allocated bytes are more than halved when using generics, a
 | BenchmarkHash/Size_10000-_generics-16  |      1 802 |   652 946 ns/op |  389 466 B/op |             255 allocs/op |
 
 
+## Sorted Generic V2
+
+`SortedGenericV2` function allows increase performance for the few times, but can be unsafe in some cases cause will change order for elements in the left array.
+
+| **Name**                                           |    **Runs** |     **Average** | **Allocated** | **Allocations from heap** |
+|----------------------------------------------------|------------:|----------------:|--------------:|--------------------------:|
+| BenchmarkSortedGeneric/SortedGeneric_-_1-16        |  41 944 108 |     28.25 ns/op |        8 B/op |               1 allocs/op |
+| BenchmarkSortedGeneric/SortedGenericV2_-_1-16      | 199 261 370 |     5.992 ns/op |        0 B/op |               0 allocs/op |
+| BenchmarkSortedGeneric/SortedGeneric_-_10-16       |  10 445 590 |     111.6 ns/op |        0 B/op |               0 allocs/op |
+| BenchmarkSortedGeneric/SortedGenericV2_-_10-16     |  20 496 318 |     57.31 ns/op |        0 B/op |               0 allocs/op |
+| BenchmarkSortedGeneric/SortedGeneric_-_100-16      |     745 248 |     1 624 ns/op |        0 B/op |               0 allocs/op |
+| BenchmarkSortedGeneric/SortedGenericV2_-_100-16    |   1 909 890 |     626.2 ns/op |        0 B/op |               0 allocs/op |
+| BenchmarkSortedGeneric/SortedGeneric_-_1000-16     |      38 613 |    31 097 ns/op |        0 B/op |               0 allocs/op |
+| BenchmarkSortedGeneric/SortedGenericV2_-_1000-16   |     188 733 |     6 367 ns/op |        0 B/op |               0 allocs/op |
+| BenchmarkSortedGeneric/SortedGeneric_-_10000-16    |       3 799 |   308 313 ns/op |        0 B/op |               0 allocs/op |
+| BenchmarkSortedGeneric/SortedGenericV2_-_10000-16  |       9 190 |   134 617 ns/op |        0 B/op |               0 allocs/op |
+| BenchmarkSortedGeneric/SortedGeneric_-_100000-16   |         327 | 3 679 350 ns/op |        0 B/op |               0 allocs/op |
+| BenchmarkSortedGeneric/SortedGenericV2_-_100000-16 |       1 537 |   783 528 ns/op |        0 B/op |               0 allocs/op |
