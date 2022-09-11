@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 	"math/rand"
+	"sort"
 	"testing"
 
 	"github.com/bmizerany/assert"
@@ -63,6 +64,39 @@ func TestHash(t *testing.T) {
 	assert.Equal(t, s, []interface{}{2})
 }
 
+func TestSortedGenericV2(t *testing.T) {
+	a := []int{1}
+	b := []int{2}
+	s := SortedGenericV2(a, b, func(i, j int) bool { return a[i] > b[j] })
+	assert.Equal(t, len(s), 0)
+	assert.Equal(t, s, []int{})
+	a = []int{1, 2}
+	b = []int{2}
+	s = SortedGenericV2(a, b, func(i, j int) bool { return a[i] > b[j] })
+	assert.Equal(t, s, []int{2})
+	assert.Equal(t, a, []int{2, 1})
+}
+
+var blackholeSortedGenericV2 []int
+var blackholeSortedGeneric []int
+
+func BenchmarkSortedGeneric(b *testing.B) {
+	for _, v := range []int{1, 10, 100, 1_000, 10_000, 100_000} {
+		sortedArr1 := createSortedRandomSlice(v)
+		sortedArr2 := createSortedRandomSlice(v)
+		b.Run(fmt.Sprintf("SortedGenericV2 - %d", v), func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				blackholeSortedGenericV2 = SortedGenericV2(sortedArr1, sortedArr2, func(i, j int) bool { return sortedArr1[i] > sortedArr2[j] })
+			}
+		})
+		b.Run(fmt.Sprintf("SortedGeneric - %d", v), func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				blackholeSortedGeneric = SortedGeneric(sortedArr1, sortedArr2)
+			}
+		})
+	}
+}
+
 var blackholeHashGeneric []int
 var blackholeHash []interface{}
 
@@ -88,5 +122,11 @@ func createRandomSlice(size int) []int {
 	for i := 0; i < size; i++ {
 		slice[i] = rand.Intn(int(math.Pow(float64(size), 2)))
 	}
+	return slice
+}
+
+func createSortedRandomSlice(size int) []int {
+	slice := createRandomSlice(size)
+	sort.Slice(slice, func(i, j int) bool { return slice[i] < slice[j] })
 	return slice
 }

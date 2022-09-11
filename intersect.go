@@ -34,8 +34,54 @@ func SortedGeneric[T comparable](a []T, b []T) []T {
 	return set
 }
 
+type Comparator func(i, j int) bool
+
+// SortedGenericV2 has complexity: O(n) where n is length of the shortest array.
+// Warning: Function will change left array order
+func SortedGenericV2[T comparable](a []T, b []T, leftGreater Comparator) []T {
+	var i, j, k int
+
+	for {
+		if i >= len(a) || j >= len(b) {
+			break
+		}
+		if a[i] == b[j] {
+			a[k], a[i] = a[i], a[k]
+			i++
+			j++
+			k++
+			continue
+		}
+		if leftGreater(i, j) {
+			j++
+			continue
+		}
+		i++
+		continue
+	}
+	return a[:k]
+}
+
 // Hash has complexity: O(n * x) where x is a factor of hash function efficiency (between 1 and 2)
 func HashGeneric[T comparable](a []T, b []T) []T {
+	set := make([]T, 0)
+	hash := make(map[T]bool)
+
+	for _, v := range a {
+		hash[v] = true
+	}
+
+	for _, v := range b {
+		if hash[v] {
+			set = append(set, v)
+		}
+	}
+
+	return set
+}
+
+// Hash has complexity: O(n * x) where x is a factor of hash function efficiency (between 1 and 2)
+func HashGenericBool[T comparable](a []T, b []T) []T {
 	set := make([]T, 0)
 	hash := make(map[T]bool)
 
